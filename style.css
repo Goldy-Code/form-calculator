@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: pink;
+}
+
+#troll {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 15px;
+}
+
+#success {
+  position: absolute;
+  top: 4%;
+  display: none;
+  width: min-content;
+  padding: 5px 10px;
+  background-color: #f79Ac0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+button {
+  padding: 5px 10px;
+}
+
+.box {
+  --border-size: 3px;
+  --border-angle: 0turn;
+
+  background-image: conic-gradient(
+      from var(--border-angle),
+      #d87093,
+      #d87093 50%,
+      #d87093
+    ),
+    conic-gradient(from var(--border-angle), #ffc0cbc8, #fa86c4, #fc46aa);
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: bg-spin 3s linear infinite;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
